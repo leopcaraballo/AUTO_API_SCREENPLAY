@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class Flujo de Atención de Paciente en RLApp-V2</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class Flujo de Atención de Paciente en RLApp-V2</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/default-package.html">default-package</a> &gt; Flujo de Atención de Paciente en RLApp-V2</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">1</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">4.837s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+<li>
+<a href="#tab2">Standard error</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">Ciclo completo de atención médica</td>
+<td class="success">4.837s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>
+Scenario: Ciclo completo de atención médica                 ?[90m# src/test/resources/features/flujo_atencion_paciente.feature:6?[0m
+  ?[32mGiven ?[0m?[32mque el personal médico se autentica en el sistema?[0m   ?[90m# com.sofka.stepdefinitions.FlujoPacienteStepDefinitions.queElPersonalMedicoSeAutenticaEnElSistema()?[0m
+  ?[32mWhen ?[0m?[32mse registra la llegada de un paciente a recepción?[0m    ?[90m# com.sofka.stepdefinitions.FlujoPacienteStepDefinitions.seRegistraLaLlegadaDeUnPacienteARecepcion()?[0m
+  ?[32mAnd ?[0m?[32mel administrador médica activa una de las salas?[0m       ?[90m# com.sofka.stepdefinitions.FlujoPacienteStepDefinitions.elAdministradorMedicaActivaUnaDeLasSalas()?[0m
+  ?[32mAnd ?[0m?[32mel doctor llama al siguiente paciente en la sala?[0m      ?[90m# com.sofka.stepdefinitions.FlujoPacienteStepDefinitions.elDoctorLlamaAlSiguientePacienteEnLaSala()?[0m
+  ?[32mAnd ?[0m?[32mel doctor finaliza la consulta médica exitosamente?[0m    ?[90m# com.sofka.stepdefinitions.FlujoPacienteStepDefinitions.elDoctorFinalizaLaConsultaMedicaExitosamente()?[0m
+  ?[32mThen ?[0m?[32mel paciente debe figurar como atendido en el sistema?[0m ?[90m# com.sofka.stepdefinitions.FlujoPacienteStepDefinitions.elPacienteDebeFigurarComoAtendidoEnElSistema()?[0m
+</pre>
+</span>
+</div>
+<div id="tab2" class="tab">
+<h2>Standard error</h2>
+<span class="code">
+<pre>[Test worker] INFO  - 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+Ciclo completo de atención médica(flujo-de-atención-de-paciente-en-rlapp-v2;ciclo-completo-de-atención-médica)
+--------------------------------------------------------------------------------
+[Test worker] INFO  - ?[92m|-- Given que el personal médico se autentica en el sistema?[0m
+[Test worker] INFO  - ?[92m|---- Doctoradmin autenticar staff?[0m
+[Test worker] INFO  - ?[92m|------ DoctorAdmin executes a POST on the resource /api/staff/auth/login?[0m
+[Test worker] INFO  - ?[92m|---- Then C&amp;oacute;digo de login should be (200)?[0m
+[Test worker] INFO  - ?[92m|-- When se registra la llegada de un paciente a recepción?[0m
+[Test worker] INFO  - ?[92m|---- Doctoradmin registrar paciente?[0m
+[Test worker] INFO  - ?[92m|------ DoctorAdmin executes a POST on the resource /api/reception/register?[0m
+[Test worker] INFO  - ?[92m|---- Then C&amp;oacute;digo al registrar should be (200)?[0m
+[Test worker] INFO  - ?[92m|-- And el administrador médica activa una de las salas?[0m
+[Test worker] INFO  - ?[92m|---- Doctoradmin activar consultorio?[0m
+[Test worker] INFO  - ?[92m|------ DoctorAdmin executes a POST on the resource /api/medical/consulting-room/activate?[0m
+[Test worker] INFO  - ?[92m|---- Then C&amp;oacute;digo al activar sala should be (200)?[0m
+[Test worker] INFO  - ?[92m|-- And el doctor llama al siguiente paciente en la sala?[0m
+[Test worker] INFO  - ?[92m|---- Doctoradmin llamar paciente?[0m
+[Test worker] INFO  - ?[92m|------ DoctorAdmin executes a POST on the resource /api/waiting-room/claim-next?[0m
+[Test worker] INFO  - ?[92m|---- Then C&amp;oacute;digo al reclamar turno should be (200)?[0m
+[Test worker] INFO  - ?[92m|-- And el doctor finaliza la consulta médica exitosamente?[0m
+[Test worker] INFO  - ?[92m|---- Doctoradmin finalizar consulta?[0m
+[Test worker] INFO  - ?[92m|------ DoctorAdmin executes a POST on the resource /api/medical/finish-consultation?[0m
+[Test worker] INFO  - ?[92m|---- Then C&amp;oacute;digo al finalizar consulta should be (200)?[0m
+[Test worker] INFO  - ?[92m|-- Then el paciente debe figurar como atendido en el sistema?[0m
+[Test worker] INFO  - ?[92m|---- Then Mantenimiento de Status Final OK should be (200)?[0m
+[Test worker] INFO  - ?[92m
+  _____   ___   ___   _____     ___     _     ___   ___   ___   ___  
+ |_   _| | __| / __| |_   _|   | _ \   /_\   / __| / __| | __| |   \ 
+   | |   | _|  \__ \   | |     |  _/  / _ \  \__ \ \__ \ | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___/ |___/ |___| |___/ 
+
+Ciclo completo de atención médica
+----------------------------------------------------------------------?[0m
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 8.7</a> at 20 mar 2026, 4:20:52</p>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+plugins {
+    id 'java'
+    id 'net.serenity-bdd.serenity-gradle-plugin' version '4.0.15'
+}
+
+group = 'com.sofka'
+version = '1.0-SNAPSHOT'
+
+
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    serenityVersion = '4.0.15'
+}
+
+dependencies {
+    implementation "net.serenity-bdd:serenity-core:${serenityVersion}"
+    implementation "net.serenity-bdd:serenity-cucumber:${serenityVersion}"
+    implementation "net.serenity-bdd:serenity-screenplay:${serenityVersion}"
+    implementation "net.serenity-bdd:serenity-screenplay-rest:${serenityVersion}"
+    implementation "net.serenity-bdd:serenity-rest-assured:${serenityVersion}"
+
+    testImplementation 'junit:junit:4.13.2'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
+    implementation 'org.slf4j:slf4j-simple:2.0.11'
+    
+    compileOnly 'org.projectlombok:lombok:1.18.36'
+    annotationProcessor 'org.projectlombok:lombok:1.18.36'
+    testCompileOnly 'org.projectlombok:lombok:1.18.36'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.36'
+}
+
+test {
+    testLogging.showStandardStreams = true
+    systemProperties System.getProperties()
+}
+
+gradle.startParameter.continueOnFailure = true
+test.finalizedBy(aggregate)
