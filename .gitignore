@@ -1,0 +1,30 @@
+# Gradle and Java build outputs
+.gradle/
+build/
+bin/
+out/
+target/
+tmp/
+*.class
+
+# Serenity and test artifacts
+reports/
+
+# IDE and editor files
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+.vscode/*
+!.vscode/tasks.json
+
+# OS and editor temp files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Local history
+history/
