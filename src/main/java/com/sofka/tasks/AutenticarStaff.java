@@ -1,8 +1,9 @@
 package com.sofka.tasks;
 
 import com.sofka.models.LoginRequest;
+import com.sofka.utils.ActorMemoryKeys;
+import com.sofka.utils.ApiRequestSupport;
 import com.sofka.utils.Endpoints;
-import io.restassured.http.ContentType;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.Tasks;
@@ -31,16 +32,12 @@ public class AutenticarStaff implements Task {
 
         actor.attemptsTo(
             Post.to(Endpoints.AUTH_LOGIN)
-                .with(request -> request
-                    .contentType(ContentType.JSON)
-                    .header("Accept", "application/json")
-                    .body(login)
-                )
+                .with(request -> ApiRequestSupport.json(request, login))
         );
 
         String token = net.serenitybdd.rest.SerenityRest.lastResponse().path("accessToken");
         if (token != null) {
-            actor.remember("token", token);
+            actor.remember(ActorMemoryKeys.AUTH_TOKEN, token);
         }
     }
 }

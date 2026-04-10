@@ -24,6 +24,7 @@ dependencies {
     implementation "net.serenity-bdd:serenity-screenplay:${serenityVersion}"
     implementation "net.serenity-bdd:serenity-screenplay-rest:${serenityVersion}"
     implementation "net.serenity-bdd:serenity-rest-assured:${serenityVersion}"
+    implementation 'org.awaitility:awaitility:4.2.1'
 
     testImplementation 'junit:junit:4.13.2'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
@@ -34,7 +35,13 @@ test {
     testLogging.showStandardStreams = true
     systemProperties System.getProperties()
     jvmArgs("--add-opens", "java.base/java.lang=ALL-UNNAMED")
+    finalizedBy aggregate
 }
 
-gradle.startParameter.continueOnFailure = true
-test.finalizedBy(aggregate)
+serenity {
+    reports = ["html"]
+}
+
+clean.doFirst {
+    delete 'target'
+}

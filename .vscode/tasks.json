@@ -1,0 +1,135 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "validate-api-screenplay-automation",
+      "type": "shell",
+      "command": "./gradlew",
+      "args": ["test", "--no-daemon"],
+      "options": {
+        "env": {
+          "RLAPP_API_BASE_URL": "${input:rlappApiBaseUrl}",
+          "RLAPP_VALID_USERNAME": "${input:rlappValidUsername}",
+          "RLAPP_VALID_PASSWORD": "${input:rlappValidPassword}",
+          "RLAPP_SUPPORT_USERNAME": "${input:rlappSupportUsername}",
+          "RLAPP_SUPPORT_PASSWORD": "${input:rlappSupportPassword}"
+        }
+      },
+      "isBackground": false,
+      "problemMatcher": [],
+      "group": "test"
+    },
+    {
+      "label": "compile-api-screenplay-automation",
+      "type": "shell",
+      "command": "./gradlew",
+      "args": ["testClasses", "--no-daemon"],
+      "isBackground": false,
+      "problemMatcher": [],
+      "group": "test"
+    },
+    {
+      "label": "clean-validate-api-screenplay-automation",
+      "type": "shell",
+      "command": "./gradlew",
+      "args": ["clean", "test", "--no-daemon"],
+      "options": {
+        "env": {
+          "RLAPP_API_BASE_URL": "${input:rlappApiBaseUrl}",
+          "RLAPP_VALID_USERNAME": "${input:rlappValidUsername}",
+          "RLAPP_VALID_PASSWORD": "${input:rlappValidPassword}",
+          "RLAPP_SUPPORT_USERNAME": "${input:rlappSupportUsername}",
+          "RLAPP_SUPPORT_PASSWORD": "${input:rlappSupportPassword}"
+        }
+      },
+      "isBackground": false,
+      "problemMatcher": [],
+      "group": "test"
+    },
+    {
+      "label": "compile-api-screenplay",
+      "type": "shell",
+      "command": "./gradlew",
+      "args": ["testClasses", "--no-daemon"],
+      "isBackground": false,
+      "problemMatcher": [],
+      "group": "test"
+    },
+    {
+      "label": "check-services",
+      "type": "shell",
+      "command": "curl",
+      "args": [
+        "-s",
+        "-o",
+        "/dev/null",
+        "-w",
+        "%{http_code}",
+        "http://localhost:5094/health"
+      ],
+      "isBackground": false
+    },
+    {
+      "label": "check-frontend",
+      "type": "shell",
+      "command": "curl",
+      "args": [
+        "-s",
+        "-o",
+        "/dev/null",
+        "-w",
+        "%{http_code}",
+        "http://localhost:3000"
+      ],
+      "isBackground": false
+    },
+    {
+      "label": "run-api-screenplay-tests",
+      "type": "shell",
+      "command": "./gradlew",
+      "args": ["clean", "test", "--no-daemon"],
+      "options": {
+        "env": {
+          "RLAPP_API_BASE_URL": "${input:rlappApiBaseUrl}",
+          "RLAPP_VALID_USERNAME": "${input:rlappValidUsername}",
+          "RLAPP_VALID_PASSWORD": "${input:rlappValidPassword}",
+          "RLAPP_SUPPORT_USERNAME": "${input:rlappSupportUsername}",
+          "RLAPP_SUPPORT_PASSWORD": "${input:rlappSupportPassword}"
+        }
+      },
+      "isBackground": false,
+      "problemMatcher": [],
+      "group": "test"
+    }
+  ],
+  "inputs": [
+    {
+      "id": "rlappApiBaseUrl",
+      "type": "promptString",
+      "description": "RLApp API base URL",
+      "default": "http://localhost:5094"
+    },
+    {
+      "id": "rlappValidUsername",
+      "type": "promptString",
+      "description": "Supervisor username"
+    },
+    {
+      "id": "rlappValidPassword",
+      "type": "promptString",
+      "description": "Supervisor password",
+      "password": true
+    },
+    {
+      "id": "rlappSupportUsername",
+      "type": "promptString",
+      "description": "Support username"
+    },
+    {
+      "id": "rlappSupportPassword",
+      "type": "promptString",
+      "description": "Support password",
+      "password": true
+    }
+  ]
+}

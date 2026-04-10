@@ -2,27 +2,27 @@ package com.sofka.models;
 
 public class ClaimNextRequest {
     private String queueId;
-    private String roomId;
+    private String consultingRoomId;
 
     public ClaimNextRequest() {}
 
-    public ClaimNextRequest(String queueId, String roomId) {
+    public ClaimNextRequest(String queueId, String consultingRoomId) {
         this.queueId = queueId;
-        this.roomId = roomId;
+        this.consultingRoomId = consultingRoomId;
     }
 
     public String getQueueId() { return queueId; }
     public void setQueueId(String queueId) { this.queueId = queueId; }
-    public String getRoomId() { return roomId; }
-    public void setRoomId(String roomId) { this.roomId = roomId; }
+    public String getConsultingRoomId() { return consultingRoomId; }
+    public void setConsultingRoomId(String consultingRoomId) { this.consultingRoomId = consultingRoomId; }
 
     public static ClaimNextRequestBuilder builder() { return new ClaimNextRequestBuilder(); }
 
     public static class ClaimNextRequestBuilder {
         private String queueId;
-        private String roomId;
+        private String consultingRoomId;
         public ClaimNextRequestBuilder queueId(String queueId) { this.queueId = queueId; return this; }
-        public ClaimNextRequestBuilder roomId(String roomId) { this.roomId = roomId; return this; }
-        public ClaimNextRequest build() { return new ClaimNextRequest(queueId, roomId); }
+        public ClaimNextRequestBuilder consultingRoomId(String consultingRoomId) { this.consultingRoomId = consultingRoomId; return this; }
+        public ClaimNextRequest build() { return new ClaimNextRequest(queueId, consultingRoomId); }
     }
 }
